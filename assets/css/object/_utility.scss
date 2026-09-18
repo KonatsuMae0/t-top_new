@@ -1,0 +1,465 @@
+@use '../foundation/_variables' as var;
+@use "../foundation/_function" as function;
+@use '../foundation/_mixin' as mixin;
+
+/* =========================================================
+ utility
+========================================================= */
+
+/* テキスト
+-------------------------------------- */
+// 寄せ
+.u-text-left {
+    text-align: left!important;
+}
+
+.u-text-center {
+    text-align: center!important;
+}
+
+.u-text-center-large {
+    @include mixin.min-large {
+        text-align: center!important;
+    }
+}
+
+.u-text-right {
+    text-align: right!important;
+}
+
+// フォントサイズ
+.u-fs-medium {
+    @include mixin.font-size(18);
+}
+
+.u-fs-large {
+    @include mixin.font-size(20);
+    @include mixin.min-large {
+        @include mixin.font-size(22);
+    }
+}
+
+// フォントカラー
+.u-color-01 {
+    color: var.$color-01;
+}
+
+.u-color-02 {
+    color: var.$color-02;
+}
+
+// ウェイト
+.u-weight-bold {
+    font-weight: 700;
+}
+
+.u-weight-middle {
+    font-weight: 500;
+}
+
+
+/* 表示・非表示
+----------------------------------------------- */
+.u-hidden {
+  display: none!important;
+}
+
+// 視覚的に隠すが読み上げは可能（アクセシビリティ用）
+.u-visually-hidden {
+    position: absolute!important;
+    width: 1px!important;
+    height: 1px!important;
+    padding: 0!important;
+    margin: -1px!important;
+    overflow: hidden!important;
+    clip: rect(0, 0, 0, 0)!important;
+    white-space: nowrap!important;
+    border: 0!important;
+}
+
+.u-hidden-xSmall {
+    @include mixin.min-xSmall {
+        display: none!important;
+    }
+}
+
+.u-hidden-small {
+    @include mixin.min-small {
+        display: none!important;
+    }
+}
+
+.u-hidden-medium {
+    @include mixin.min-medium {
+        display: none!important;
+    }
+}
+
+.u-hidden-large {
+    @include mixin.min-large {
+        display: none!important;
+    }
+}
+
+.u-hidden-xLarge {
+    @include mixin.min-xLarge {
+        display: none!important;
+    }
+}
+
+.u-hidden-xxLarge {
+    @include mixin.min-xxLarge {
+        display: none!important;
+    }
+}
+
+.u-visible-small {
+    @include mixin.max-xSmall {
+        display: none!important;
+    }
+}
+
+.u-visible-medium {
+    @include mixin.max-small {
+        display: none!important;
+    }
+}
+
+.u-visible-large {
+    @include mixin.max-medium {
+        display: none!important;
+    }
+}
+
+.u-visible-xLarge {
+    @include mixin.max-large {
+        display: none!important;
+    }
+}
+
+.u-visible-xxLarge {
+    @include mixin.max-xLarge {
+        display: none!important;
+    }
+}
+
+.u-visible-small-only {
+    @include mixin.max-xSmall {
+        display: none!important;
+    }
+    @include mixin.min-medium {
+        display: none!important;
+    }
+}
+
+.u-visible-medium-only {
+    @include mixin.max-small {
+        display: none!important;
+    }
+    @include mixin.min-large {
+        display: none!important;
+    }
+}
+.u-visible-large-only {
+    @include mixin.max-medium {
+        display: none!important;
+    }
+    @include mixin.min-xLarge {
+        display: none!important;
+    }
+}
+
+.u-visible-xLarge-only {
+    @include mixin.max-large {
+        display: none!important;
+    }
+    @include mixin.min-xxLarge {
+        display: none!important;
+    }
+}
+
+
+/* マージン調整
+-------------------------------------- */
+.u-mt-xxSmall {
+    margin-top: 8px;
+}
+
+.u-mt-xSmall {
+    margin-top: 16px;
+}
+
+.u-mt-small {
+    margin-top: 24px;
+    @include mixin.min-large {
+        margin-top: 40px;
+    }
+}
+
+.u-mt-medium {
+    margin-top: 30px;
+    @include mixin.min-large {
+        margin-top: 60px;
+    }
+}
+
+.u-mt-large {
+    margin-top: 36px;
+    @include mixin.min-large {
+        margin-top: 80px;
+    }
+}
+
+.u-mt-xLarge {
+    margin-top: 42px;
+    @include mixin.min-large {
+        margin-top: 100px;
+    }
+}
+
+.u-mt-xxLarge {
+    margin-top: 48px;
+    @include mixin.min-large {
+        margin-top: 140px;
+    }
+}
+
+.u-mb-xSmall {
+    margin-bottom: 16px;
+}
+
+.u-mb-small {
+    margin-bottom: 24px;
+    @include mixin.min-large {
+        margin-bottom: 40px;
+    }
+}
+
+.u-mb-medium {
+    margin-bottom: 30px;
+    @include mixin.min-large {
+        margin-bottom: 60px;
+    }
+}
+
+.u-mb-large {
+    margin-bottom: 36px;
+    @include mixin.min-large {
+        margin-bottom: 80px;
+    }
+}
+
+.u-mb-xLarge {
+    margin-bottom: 42px;
+    @include mixin.min-large {
+        margin-bottom: 100px;
+    }
+}
+
+.u-mb-xxLarge {
+    margin-bottom: 48px;
+    @include mixin.min-large {
+        margin-bottom: 140px;
+    }
+}
+
+.u-pt-xSmall {
+    padding-top: 16px;
+}
+
+.u-pt-small {
+    padding-top: 24px;
+    @include mixin.min-large {
+        padding-top: 40px;
+    }
+}
+
+.u-pt-medium {
+    padding-top: 30px;
+    @include mixin.min-large {
+        padding-top: 60px;
+    }
+}
+
+.u-pt-large {
+    padding-top: 36px;
+    @include mixin.min-large {
+        padding-top: 80px;
+    }
+}
+
+.u-pt-xLarge {
+    padding-top: 42px;
+    @include mixin.min-large {
+        padding-top: 100px;
+    }
+}
+
+.u-pt-xxLarge {
+    padding-top: 48px;
+    @include mixin.min-large {
+        padding-top: 140px;
+    }
+}
+
+.u-pb-xSmall {
+    padding-bottom: 16px;
+}
+
+.u-pb-small {
+    padding-bottom: 24px;
+    @include mixin.min-large {
+        padding-bottom: 40px;
+    }
+}
+
+.u-pb-medium {
+    padding-bottom: 30px;
+    @include mixin.min-large {
+        padding-bottom: 60px;
+    }
+}
+
+.u-pb-large {
+    padding-bottom: 36px;
+    @include mixin.min-large {
+        padding-bottom: 80px;
+    }
+}
+
+.u-pb-xLarge {
+    padding-bottom: 42px;
+    @include mixin.min-large {
+        padding-bottom: 100px;
+    }
+}
+
+.u-pb-xxLarge {
+    padding-bottom: 48px;
+    @include mixin.min-large {
+        padding-bottom: 140px;
+    }
+}
+
+
+// マージン打ち消し
+.u-mt-0 {
+    margin-top: 0!important;
+}
+
+.u-mb-0 {
+    margin-bottom: 0!important;
+}
+
+// パディング打ち消し
+.u-pt-0 {
+    padding-top: 0!important;
+}
+
+.u-pb-0 {
+    padding-bottom: 0!important;
+}
+
+
+/* 寄せ
+-------------------------------------- */
+.u-align-left {
+    margin-right: auto;
+}
+
+.u-align-right {
+    margin-left: auto;
+}
+
+.u-align-center {
+    margin-inline: auto;
+}
+
+/* 背景カラー
+-------------------------------------- */
+.u-bg-color-01 {
+    background: var.$color-bg-01;
+}
+
+.u-bg-color-02 {
+    background: var.$color-bg-02;
+}
+
+
+/* 明度変更
+-------------------------------------- */
+.u-brightness-105 {
+    filter: brightness(105%);
+}
+
+.u-brightness-110 {
+    filter: brightness(110%);
+}
+
+/* アニメーション
+-------------------------------------- */
+
+/* 下から */
+.is-animation--fadein {
+    opacity:0;
+
+    &.is-animation--done {
+        animation-name: fadeUpAnime;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* 画像用：ブラーからのフェードイン */
+.is-animation--imgfadein {
+    opacity: 0;
+    filter: blur(6px);
+    transition: opacity 0.5s ease-out, filter 0.9s ease-out;
+
+    &.is-animation--done {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/* 字詰め
+-------------------------------------- */
+.u-font-palt {
+    font-feature-settings: "palt";
+}
+
+
+/* word-keep 
+-------------------------------------- */
+.u-word-keep {
+    word-break: keep-all;
+    //overflow-wrap: break-word;
+    overflow-wrap: anywhere;
+
+    &--xxSmall {
+        @media (max-width: 389px) {
+            word-break: keep-all;
+            overflow-wrap: anywhere;
+
+        }
+    }
+
+    &--large {
+        @include mixin.max-medium {
+            word-break: normal;
+            overflow-wrap: normal;
+        }
+    }
+}

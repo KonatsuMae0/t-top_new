@@ -1,0 +1,123 @@
+@use 'sass:math';
+@use '../../foundation/_variables' as var;
+@use "../../foundation/_function" as function;
+@use '../../foundation/_mixin' as mixin;
+
+/* =========================================================
+ message
+========================================================= */
+
+/* lead
+-------------------------------------- */
+.p-message-lead__lead {
+    margin-bottom: 0.8em;
+    text-align: center;
+    font-weight: 700;
+    color: var.$color-01;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    @include mixin.font-size(18);
+    @include mixin.min-medium {
+        @include mixin.font-size(22);
+    }
+    @include mixin.min-large {
+        margin-bottom: 1.3em;
+        @include mixin.font-size(26);
+    }
+}
+
+.p-message-lead__text {
+    display: grid;
+    row-gap: 0.8em;
+    @include mixin.min-medium {
+        text-align: center;
+    }
+}
+
+
+/* message
+-------------------------------------- */
+.p-message {
+    container: message / inline-size;
+}
+
+.p-message__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    @include mixin.min-large {
+        flex-direction: row;
+        column-gap: function.calc-vw(60, 1300);
+    }
+}
+
+.p-message__body {
+    @include mixin.min-large {
+        width: 56%;
+    }
+
+    .title {
+        margin-bottom: 0.6em;
+        letter-spacing: 0.1em;
+        color: var.$color-01;
+        @include mixin.font-size(18);
+        @include mixin.min-medium {
+            @include mixin.font-size(22);
+        }
+        @include mixin.min-large {
+            margin-bottom: 1em;
+            @include mixin.font-size(26);
+        }
+    }
+
+    .text {
+        display: grid;
+        gap: 0.8em;
+        @include mixin.font-size(13);
+
+        @include mixin.min-large {
+            @include mixin.font-size(15);
+        }
+
+        @include mixin.min-xLarge {
+            gap: 1.2em;
+        }
+
+        .sign {
+            margin-top: 0.6em;
+            line-height: 1.5;
+            span {
+                display: block;
+                margin-top: 0.2em;
+                font-weight: 700;
+                @include mixin.font-size(16);
+                @include mixin.min-medium {
+                    @include mixin.font-size(18);
+                }
+            }
+        }
+    }
+}
+
+.p-message__img {
+    border-radius: 6px;
+    overflow: hidden;
+    @include mixin.min-large {
+        flex: 1;
+        margin-left: calc(50% - 50vw);
+        margin-left: calc(50% - 50cqi);
+        border-radius: 0 6px 6px 0;
+    }
+
+
+
+    @media (min-width: 2086px) {
+        margin-left: -360px;
+        border-radius: 6px
+    }
+
+    img {
+        @include mixin.fit-img;
+    }
+}

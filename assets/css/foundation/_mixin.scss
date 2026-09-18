@@ -1,0 +1,566 @@
+/* =========================================================
+ mixin
+========================================================= */
+
+@use 'sass:math';
+@use 'sass:map';
+@use '_variables' as var;
+@use '_function' as function;
+
+// フォントサイズ
+//-------------------------------------- */
+@mixin font-size($px, $base: 16) {
+    & {
+        font-size: $px * 1px;
+        font-size: function.rem($px, $base);
+    }
+}
+
+@mixin mq-min($breakpoint) {
+    @media (min-width:#{map.get(var.$breakpoints, $breakpoint)}px) {
+        @content;
+    }
+}
+
+// メディアクエリ
+//-------------------------------------- */
+@mixin min-xSmall {
+    @media (min-width:#{map.get(var.$breakpoints, xSmall)}px) {
+        @content;
+    }
+}
+
+@mixin min-small {
+    @media (min-width:#{map.get(var.$breakpoints, small)}px) {
+        @content;
+    }
+}
+
+@mixin min-medium {
+    @media (min-width:#{map.get(var.$breakpoints, medium)}px) {
+        @content;
+    }
+}
+
+@mixin min-large {
+    @media (min-width:#{map.get(var.$breakpoints, large)}px) {
+        @content;
+    }
+}
+
+@mixin min-xLarge {
+    @media (min-width:#{map.get(var.$breakpoints, xLarge)}px) {
+        @content;
+    }
+}
+
+@mixin min-xxLarge {
+    @media (min-width:#{map.get(var.$breakpoints, xxLarge)}px) {
+        @content;
+    }
+}
+
+
+@mixin max-xSmall {
+    @media (max-width: #{map.get(var.$breakpoints, small) - 1}px) {
+        @content;
+    }
+}
+
+@mixin max-small {
+    @media (max-width: #{map.get(var.$breakpoints, medium) - 1}px) {
+        @content;
+    }
+}
+
+@mixin max-medium {
+    @media (max-width: #{map.get(var.$breakpoints, large) - 1}px) {
+        @content;
+    }
+}
+
+@mixin max-large {
+    @media (max-width: #{map.get(var.$breakpoints, xLarge) - 1}px) {
+        @content;
+    }
+}
+
+@mixin max-xLarge {
+    @media (max-width: #{map.get(var.$breakpoints, xxLarge) - 1}px) {
+        @content;
+    }
+}
+
+
+
+// text-clamp（お知らせ一覧などで使う、テキストの行数指定）
+//-------------------------------------- */
+@mixin text-clamp($line, $line-pc: null) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-line-clamp: $line;
+    overflow: hidden;
+    @if ($line-pc) {
+        @include min-large {
+            -webkit-line-clamp: $line-pc;
+        }
+    }
+}
+
+// hoverアニメーション
+//-------------------------------------- */
+
+// 文字色変更
+@mixin hover-color($color) {
+    @media (any-hover: hover) {
+        transition: 0.5s color;
+        &:hover {
+            color: $color!important;
+        }
+    }
+}
+
+// 透明度変更
+@mixin hover-opacity($opacity: 0.7) {
+    @media (any-hover: hover) {
+        transition: 0.5s opacity;
+        &:hover {
+            opacity: $opacity;
+        }
+    }
+}
+
+// 背景色変更
+@mixin hover-bgcolor($bgcolor) {
+    @media (any-hover: hover) {
+        transition: 0.5s background-color;
+        &:hover {
+            background-color: $bgcolor;
+        }
+    }
+}
+
+
+// heading
+//-------------------------------------- */
+@mixin editor-heading-style {
+    & {
+        h2:not(.c-heading-01):not(.c-heading-02):not(.c-heading-03):not(.c-heading-04):not(.c-heading-05):not(.c-heading-06) {
+            position: relative;
+            padding: 0 0.4em 0.6em;
+            border-bottom: 1px solid #ACACAC;
+            @include font-size(20);
+
+            @include min-large {
+                @include font-size(22);
+            }
+
+            &::before {
+                position: absolute;
+                left: 0;
+                bottom: -1px;
+                width: min(25vw, 10em);
+                height: 1px;
+                background: var.$color-01;
+                content: '';
+            }
+        }
+
+        h3:not(.c-heading-01):not(.c-heading-02):not(.c-heading-03):not(.c-heading-04):not(.c-heading-05):not(.c-heading-06) {
+            position: relative;
+            padding: 0.2em 0 0.2em 1em;
+            @include font-size(18);
+
+            @include min-large {
+                @include font-size(20);
+            }
+            
+            &::before {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                width: 5px;
+                border-radius: 3px;
+                background: var.$color-01;
+                content: '';
+            }
+        }
+        h4:not(.c-heading-01):not(.c-heading-02):not(.c-heading-03):not(.c-heading-04):not(.c-heading-05):not(.c-heading-06) {
+            @include font-size(16);
+            @include min-large {
+                @include font-size(18);
+            }
+        }
+        h5:not(.c-heading-01):not(.c-heading-02):not(.c-heading-03):not(.c-heading-04):not(.c-heading-05):not(.c-heading-06) {
+            @include font-size(15);
+            @include min-large {
+                @include font-size(17);
+            }
+        }
+        h6:not(.c-heading-01):not(.c-heading-02):not(.c-heading-03):not(.c-heading-04):not(.c-heading-05):not(.c-heading-06) {
+        }
+    }
+}
+
+@mixin editor-style {
+
+    a:not(.wp-block-button__link):not(.wp-block-file__button) {
+        color: var.$color-text-02;
+    }
+
+    .wp-block-file__button {
+        padding: 0.4em 1em;
+        background: var.$color-01;
+        color: #FFF;
+    }
+
+    > * + * {
+        margin-top: var.$editorMargin;
+    }
+
+    p {
+        strong {
+            color: var.$color-01;
+        }
+    }
+
+    * + h2,
+    * + h3,
+    * + h4,
+    * + h5,
+    * + h6 {
+        margin-top: 2em;
+    }
+
+    ul {
+        li {
+            display: flex;
+            position: relative;
+            line-height: 1.7;
+        }
+    }
+
+    li + li {
+        margin-top: 0.3em;
+    }
+
+    ul:not(.blocks-gallery-grid) {
+        padding-left: 1.2em;
+        li {
+            display: list-item;
+            
+
+
+        }
+    }
+
+    ul.nomarker {
+        li {
+            padding-left: 0;
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+
+    ol {
+        padding-left: 1.5em;
+    }
+
+    iframe {
+        max-width: 100%;
+    }
+
+    pre {
+        white-space: pre-wrap;
+    }
+
+    .alignleft {
+        float: left;
+        margin: 0 1em 1em 0;
+    }
+
+    .alignright {
+        float: right;
+        margin: 0 0 1em 1em;
+    }
+
+    .aligncenter {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    figure {
+        figcaption {
+            margin-top: 0.5em;
+            text-align: center;
+            font-size: 85%;
+        }
+    }
+
+    .wp-block-button__link {
+        padding-block: 0.6em;
+        background: var.$color-01;
+
+        @include hover-opacity;
+    }
+
+    .wp-block-columns {
+        > * {
+            > * + * {
+                margin-top: var.$editorMargin;
+            }
+        }
+    }
+
+    .wp-block-group__inner-container {
+        
+        > * + * {
+            margin-top: var.$editorMargin;
+        }
+    }
+}
+
+// fit-img
+//-------------------------------------- */
+@mixin fit-img($type: cover) {
+    width: 100%;
+    height: 100%;
+    object-fit: $type;
+}
+
+// bg img
+//-------------------------------------- */
+@mixin bg-img {
+    & {
+        position: absolute;
+        inset: 0;
+
+        img {
+            @include fit-img;
+        }
+    }
+}
+
+// toggle
+//-------------------------------------- */
+
+// 開閉ボタン
+@mixin toggle-btn($icon-width, $icon-color) {
+    & {
+        cursor: pointer;
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: $icon-width;
+            aspect-ratio: 1/1;
+
+            &::before,
+            &::after {
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                border-radius: 2px;
+                background: $icon-color;
+                content: '';
+            }
+
+            &::after {
+                transform: rotate(90deg);
+                transition: 0.5s;
+            }
+        }
+
+        &.is-toggle-btn--open {
+            .icon {
+                &::after {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+    }
+}
+
+
+// ボタンを押すと開閉するコンテンツ部分
+@mixin toggle-contents {
+    & {
+        display: grid; 
+        grid-template-rows: 0fr;
+        transition: 0.5s grid-template-rows ease,0.5s padding ease,0.5s border-color ease;
+  
+        > * {
+            overflow: hidden;
+        }
+        &.is-toggle-contents--open {
+            grid-template-rows: 1fr;
+        }
+    }
+}
+
+// ページャーボタン
+//-------------------------------------- */
+
+// prevのときはpager-btn-style('prev')
+@mixin pager-btn-style($direcrion: null) {
+    & {
+        display: inline-flex;
+        align-items: center;
+        column-gap: 0.6em;
+        transition: 0.5s color;
+
+        @if ($direcrion == 'prev') {
+            //flex-direction: row-reverse;
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 1.3em;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: var.$color-01;
+
+            &::after {
+                width: 5px;
+                height: 5px;
+                margin-left: -2px;
+                border-right: 1px solid #FFF;
+                border-top: 1px solid #FFF;
+                rotate: 45deg;
+                content: '';
+            }
+
+
+            @if ($direcrion == 'prev') {
+                scale: -1 1;
+            }
+        }
+
+
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var.$color-01;
+            }
+        }
+    }
+}
+
+// playBtns
+//-------------------------------------- */
+@mixin play-btns-style {
+    & {
+        position: relative;
+        z-index: 2;
+        height: 28px;
+        @include font-size(1);
+
+        .btn {
+            display: block;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            position: relative;
+            //@include hover-opacity;
+
+            &::before,
+            &::after {
+                opacity: 0;
+                transition: 0.5s opacity;
+                pointer-events: none;
+            }
+
+            &::before {
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, -7px);
+                bottom: 100%;
+                padding: 0.2em 0.8em;
+                background-color: var.$color-text-01;
+                white-space: nowrap;
+                color: #FFF;
+                @include font-size(16);
+            }
+
+            &::after {
+                position: absolute;
+                left: 50%;
+                bottom: calc(100% - 2px);
+                width: 14px;
+                height: 10px;
+                margin-left: -7px;
+                clip-path: polygon(0 0, 100% 0, 50% 100%);
+                background-color: var.$color-text-01;
+                content: '';
+            }
+
+            @media (any-hover: hover) {
+                &:hover {
+                    &::before,
+                    &::after {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &--play {
+                display: none;
+                background: url(../img/common/btn_play.svg) no-repeat center / contain;
+                &::before {
+                    content: '再生する';
+                }
+            }
+
+            &--pause {
+                background: url(../img/common/btn_pause.svg) no-repeat center / contain;
+                &::before {
+                    content: '停止する';
+                }
+            }
+
+            &::before {
+                position: absolute;
+            }
+            img {
+                display: block;
+            }
+        }
+    }
+}
+
+// 丸型矢印アイコン（hoverで拡大する想定。拡大の scale はホバー元の要素側で指定する）
+//-------------------------------------- */
+@mixin arrow-circle($size: 24px) {
+    & {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        top: calc(50% - #{math.div($size, 2)});
+        width: $size;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: var.$color-01;
+        transition: 0.5s scale;
+
+        &::after {
+            width: 5px;
+            height: 5px;
+            margin-left: -2px;
+            border-right: 1px solid #FFF;
+            border-top: 1px solid #FFF;
+            rotate: 45deg;
+            content: '';
+        }
+    }
+}

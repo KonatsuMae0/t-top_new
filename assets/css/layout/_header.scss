@@ -1,0 +1,225 @@
+@use '../foundation/_variables' as var;
+@use "../foundation/_function" as function;
+@use '../foundation/_mixin' as mixin;
+
+/* =========================================================
+ header
+========================================================= */
+.l-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 13;
+    transition: 0.5s background-color;
+
+    &.is-header--scroll {
+        background: rgba(#FFF, 0.7);
+        backdrop-filter: blur(10px);
+    }
+
+    body.is-menu-open & {
+        @include mixin.max-medium {
+            background: transparent;
+            backdrop-filter: none;
+        }
+    }
+}
+
+.l-header__inner {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    @include mixin.max-medium {
+        flex: 1;
+        width: 100%;
+        max-width: none;
+        height: 60px;
+        padding-left: function.calc-vw(16, 375);
+    }
+
+    @include mixin.min-large {
+        width: var.$width;
+        max-width: 1725px;
+        height: function.calc-vw(140, 1920, 100);
+        margin-inline: auto;
+        transition: 0.5s height;
+
+        .is-header--scroll & {
+            height: 80px;
+        }
+    }
+}
+
+.l-header__logo {
+    position: relative;
+    z-index: 12;
+    width: 140px;
+    margin-right: 9px;
+    transition: 0.5s color;
+    @include mixin.font-size(10);
+
+    a {
+        @include mixin.hover-opacity;
+    }
+
+    svg {
+        display: block;
+        width: 100%;
+        height: auto;
+        color: var.$color-01;
+        transition: 0.5s fill;
+
+        .is-header--home:not(.is-header--scroll) & {
+            color: #FFF;
+        }
+
+        body.is-menu-open & {
+            color: var.$color-01!important;
+        }
+    }
+}
+
+.l-header__nav {
+    @include mixin.max-medium {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 0;
+        overflow: hidden;
+        width: auto;
+        background: rgba(#FFF, 0.95);
+        pointer-events: none;
+        overscroll-behavior: contain;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        z-index: 11;
+        transition: 0.5s height;
+
+        body.is-menu-open & {
+            height: calc(100dvh);
+        }
+
+        body.is-menu-open & {
+            pointer-events: initial;
+        }
+    }
+
+    @include mixin.min-large {
+        flex: 1;
+        margin-left: 2vw;
+    }
+}
+
+
+.l-header__nav-inner {
+    @include mixin.max-medium {
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
+        position: relative;
+        width: 100%;
+        min-height: calc(100% + 1px); // スクロール連鎖対策
+        padding: 80px 5% 60px;
+    }
+
+    @include mixin.min-large {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: function.calc-vw(26, 1200);
+    }
+
+    @include mixin.min-xLarge {
+        gap: function.calc-vw(34, 1600);
+    }
+}
+
+.l-header__nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 350px;
+    min-height: 50px;
+    border: 1px solid var.$color-text-01;
+    border-radius: 6px;
+    text-align: center;
+    color: var.$color-text-01;
+    font-weight: 500;
+    transition: 0.5s background-color, 0.5s color, 0.5s border-color;
+    @include mixin.font-size(14);
+
+    @include mixin.max-medium {
+        margin-inline: auto;
+    }
+
+    @include mixin.min-large {
+        width: 190px;
+        .is-header--home:not(.is-header--scroll) & {
+            color: #FFF;
+            border-color: #FFF;
+        } 
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            background: var.$color-01;
+            border-color: var.$color-01;
+            color: #FFF;
+        }
+    }
+}
+
+
+.l-header__menu-btn {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    width: 60px;
+    aspect-ratio: 1;
+    background: var.$color-01;
+
+    @include mixin.min-large {
+        display: none;
+    }
+
+    .line {
+        position: relative;
+        width: 30px;
+        height: 16px;
+        margin-inline: auto;
+
+        > span {
+            position: absolute;
+            top: calc(50% - 2px);
+            left: 50%;
+            width: 100%;
+            height: 1px;
+            margin-left: -15px;
+            background: #fff;
+            transition: 0.5s;
+            content: '';
+
+            &:nth-child(1) {
+                margin-top: -7px;
+                body.is-menu-open & {
+                    margin-top: 0;
+                    rotate: -45deg;
+                }
+            }
+            &:nth-child(2) {
+                margin-top: 7px;
+                body.is-menu-open & {
+                    margin-top: 0;
+                    rotate: 45deg;
+                }
+            }
+        }
+    }
+}

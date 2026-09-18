@@ -1,0 +1,217 @@
+@use 'sass:math';
+@use '../../foundation/_variables' as var;
+@use "../../foundation/_function" as function;
+@use '../../foundation/_mixin' as mixin;
+
+/* =========================================================
+ company
+========================================================= */
+
+/* lead
+-------------------------------------- */
+.p-company-lead__lead {
+    @include mixin.min-medium {
+        text-align: center;
+    }
+}
+
+
+/* overview
+-------------------------------------- */
+.p-company-overview__inner {
+    max-width: 1000px;
+}
+
+.p-company-overview__slash-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+        position: relative;
+
+        &:not(:last-child) {
+            &::after {
+                margin-inline: 0.2em;
+                content: '／';
+            }
+        }
+    }
+}
+
+/* branch
+-------------------------------------- */
+.p-company-branch__inner {
+    max-width: 1000px;
+}
+
+.p-company-branch__wrapper {
+    display: grid;
+    row-gap: 16px;
+    @include mixin.min-large {
+        row-gap: 24px;
+    }
+}
+
+.p-company-branch__main {
+    display: grid;
+    background: #FFF;
+    border-radius: 6px;
+    overflow: hidden;
+    @include mixin.min-medium {
+        grid-template-columns: 1fr 50%;
+    }
+}
+
+.p-company-branch__name {
+    margin-bottom: 0.6em;
+    color: var.$color-01;
+    @include mixin.font-size(16);
+    @include mixin.min-large {
+        @include mixin.font-size(18);
+    }
+}
+
+.p-company-branch__main-body {
+    padding: min(5%, 30px);
+    .address {
+        @include mixin.min-large {
+            @include mixin.font-size(15);
+        }
+    }
+    .tel {
+        margin-top: 0.8em;
+        @include mixin.min-large {
+            @include mixin.font-size(15);
+        }
+    }
+}
+
+.p-company-branch__main-media {
+
+    iframe {
+        width: 100%;
+        height: 300px;
+        @include mixin.min-large {
+            aspect-ratio: 8/5;
+            height: auto;
+        }
+    }
+}
+
+.p-company-branch__sub {
+    display: grid;
+    row-gap: 16px;
+    @include mixin.min-medium {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include mixin.min-large {
+        gap: 24px;
+    }
+}
+
+.p-company-branch__sub-card {
+    padding: min(5%, 30px);
+    border-radius: 6px;
+    background: #FFF;
+    .address {
+        @include mixin.min-large {
+            @include mixin.font-size(15);
+        }
+    }
+}
+
+/* history
+-------------------------------------- */
+
+.p-company-history__inner {
+    max-width: 1000px;
+}
+
+.p-company-history__table {
+
+    line-height: 1.6;
+    div {
+        position: relative;
+        flex-direction: column;
+        padding-bottom: 2em;
+        @include mixin.max-small {
+            padding-left: 1.8em;
+        }
+        @include mixin.min-medium {
+            flex-direction: row;
+        }
+        &.important {
+            color: var.$color-01;
+            font-weight: 700;
+        }
+
+        &::before {
+            position: absolute;
+            top: 0.5em;
+            bottom: -0.5em;
+            left: 0.5em;
+            width: 1px;
+            background: var.$color-01;
+            content: '';
+
+            @include mixin.min-medium {
+                left: 9em;
+            }
+            
+        }
+
+        &:last-child {
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    dt {
+        font-weight: 700;
+        @include mixin.max-small {
+            margin-bottom: 0.2em;
+        }
+        @include mixin.min-medium {
+            width: 12em;
+        }
+
+        span {
+            display: block;
+            margin-top: -0.1em;
+            @include mixin.font-size(15);
+            @include mixin.min-large {
+                @include mixin.font-size(18);
+            }
+        }
+
+        &::before {
+            position: absolute;
+            top: 0.8em;
+            translate: -50% -50%;
+            width: 0.6em;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 2px solid var.$color-01;
+            background: #FFF;
+            content: '';
+            @include mixin.max-small {
+                left: 0.5em;
+            }
+            @include mixin.min-medium {
+
+                left: 9em;
+            }
+        }
+    }
+
+    .important {
+        dt {
+            &::before {
+                width: 1.2em;
+                background: var.$color-01;
+            }
+        }
+    }
+}

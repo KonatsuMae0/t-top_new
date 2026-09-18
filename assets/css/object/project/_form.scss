@@ -1,0 +1,414 @@
+@use "sass:math";
+@use "../../foundation/_variables" as var;
+@use "../../foundation/_function" as function;
+@use "../../foundation/_mixin" as mixin;
+
+/* =========================================================
+ form
+========================================================= */
+
+/* section
+-------------------------------------- */
+.p-form-section {
+    .wpcf7-response-output {
+        padding: 1em!important;
+    }
+
+    form.validating {
+        .wpcf7-response-output:empty {
+            display: none;
+        }
+
+    }
+
+    form.invalid,
+    form.unaccepted {
+        .wpcf7-response-output {
+            text-align: center;
+            border-color: #d62902!important;
+            color: #d62902;
+        }
+    }
+}
+
+.p-form-section__inner {
+    max-width: 1000px;
+    @include mixin.min-medium {
+        //padding-bottom: var.$xLarge;
+    }
+}
+
+.p-form-section__title {
+    margin-bottom: 1em;
+    text-align: center;
+    font-weight: 700;
+    @include mixin.font-size(20);
+    @include mixin.min-large {
+        @include mixin.font-size(30);
+    }
+}
+
+.p-form-section__lead {
+    text-align: center;
+    line-height: 2;
+    //font-weight: 700;
+
+}
+
+.p-form-section__att-list {
+    margin-bottom: 40px;
+    padding: min(4%, 26px);
+    overflow: hidden;
+    background: var.$color-bg-01;
+    border-radius: 6px;
+
+    @include mixin.min-large {
+        margin-bottom: 50px;
+    }
+
+    .title {
+        margin-bottom: 0.6em;
+        line-height: 1.5;
+        color: var.$color-01;
+        @include mixin.font-size(15);
+        @include mixin.min-large {
+            @include mixin.font-size(18);
+        }
+    }
+
+    .contents {
+        @include mixin.font-size(13);
+        @include mixin.min-large {
+            @include mixin.font-size(15);
+        }
+    }
+
+}
+
+.p-form-section__btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //gap: 20px;
+    text-align: center;
+    margin-top: 40px;
+    @include mixin.min-small {
+        margin-top: 60px;
+    }
+}
+
+.p-form-section__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    min-width: 260px;
+    height: 52px;
+    padding-inline: 30px;
+    background: var.$color-01;
+    border: 1px solid var.$color-01;
+    border-radius: 26px;
+    color: #FFF;
+    text-align: center;
+    transition: 0.5s background-color, 0.5s color;
+    @include mixin.font-size(15);
+
+    @media (any-hover: hover) {
+        &:hover {
+            background: #FFF;
+            color: var.$color-01;
+        }
+    }
+
+    &--back {
+        background: var.$color-border-01;
+        border-color: var.$color-border-01;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var.$color-border-01;
+            }
+        }
+    }
+
+    &:disabled {
+        filter: grayscale(85%);
+        pointer-events: none;
+        color: #CCC;
+        opacity: 0.8;
+    }
+}
+
+
+/* formTable
+-------------------------------------- */
+%essential-style {
+    padding: 0.05em 0.8em 0.1em;
+    background: #b50d23;
+    border-radius: 3px;
+    color: #FFF;
+    @include mixin.font-size(12);
+    @include mixin.min-large {
+        @include mixin.font-size(13);
+    }
+}
+
+.p-form-table {
+    > div {
+        border-bottom: 1px solid var.$color-border-01;
+        @include mixin.max-small {
+            flex-direction: column;
+            padding-block: 0.8em;
+        }
+        @include mixin.min-medium {
+            //padding: 1.2em;
+            + div {
+                //margin-top: 10px;
+            }
+        }
+    }
+
+    dt {
+        display: flex;
+        align-items: flex-start;
+        gap: 1em;
+
+        color: var.$color-text-01;
+        font-weight: 700;
+        @include mixin.max-small {
+            width: 100%;
+            align-items: center;
+            margin-bottom: 0.3em;
+        }
+
+        @include mixin.min-medium {
+            position: relative;
+            justify-content: space-between;
+            flex-shrink: 0;
+            padding: 1.2em 0.8em;
+        }
+        span {
+            @extend %essential-style;
+        }
+    }
+
+    dd {
+        padding-block: 0.2em;
+        @include mixin.min-medium {
+            flex: 1;
+            padding: 1.2em;
+        }
+    }
+
+    &--input {
+        dt {
+            @include mixin.min-medium {
+                padding-block: 1.8em;
+            }
+
+        }
+        dd {
+            &:has(.p-form-table__radio),
+            &:has(.p-form-table__checklist) {
+                padding-block: 0.6em;
+                @include mixin.min-medium {
+                    padding-block: 1.8em;
+                }
+            }
+        }
+    }
+}
+
+.p-form-table__att {
+    @include mixin.font-size(14);
+    * + & {
+        margin-top: 10px;
+    }
+}
+
+.p-form-table__radio {
+    .wpcf7-form-control.wpcf7-radio {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em 1.5em;
+        > * {
+            margin-left: 0
+        }
+    }
+}
+
+.p-form-table__date {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 1em;
+
+    input[type="date"] {
+        width: 100%;
+        text-align: left;
+        //background: red;
+    }
+
+    &:has(input[type="date"]) {
+        gap: 10px;
+        > * {
+            width: 100%;
+            //max-width: 320px;
+            @include mixin.min-small {
+                width: calc((100% - 10px) / 2);
+            }
+
+        }
+    }
+}
+
+.p-form-table__checklist,
+.p-form-table__radio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1em;
+    .wpcf7-list-item {
+        margin-left: 0;
+    }
+}
+
+.p-form-table__address {
+    display: grid;
+    row-gap: 10px;
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3em 0.6em;
+        @include mixin.min-small {
+            flex-direction: row;
+            align-items: center;
+        }
+        .wpcf7-form-control-wrap {
+            flex: 1;
+        }
+        &:first-child {
+            width: 200px;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+}
+
+%inputStyle {
+    width: 100%;
+    box-sizing: border-box;
+    height: 48px;
+    padding: 0 0.8em;
+    color: var.$color-text-01;
+    border: 1px solid var.$color-border-01;
+    border-radius: 3px;
+    background: #FFF;
+    font-weight: 500;
+    @include mixin.font-size(16);
+
+    &::placeholder {
+        color: rgba(var.$color-text-01, 0.4);
+    }
+}
+
+.p-form-table__input {
+    @extend %inputStyle;
+}
+
+.p-form-table__textarea {
+    height: 10em;
+    @extend %inputStyle;
+    padding: 0.8em;
+}
+
+.p-form-table__select {
+    position: relative;
+    //max-width: 400px;
+
+    &::after {
+        position: absolute;
+        right: 1em;
+        top: 1.3em;
+        background: var.$color-text-01;
+        height: 0.5em;
+        width: 0.8em;
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+        content: '';
+        @include mixin.min-large {
+            top: 1.31em;
+        }
+    }
+
+    select {
+        @extend %inputStyle;
+        padding-right: 2em;
+        color: var.$color-text-01;
+        cursor: pointer;
+    }
+
+    &:has(.is-myConfirmVal) {
+        &::after {
+            display: none;
+        }
+    }
+}
+
+
+/* privacy
+-------------------------------------- */
+.p-form-privacy {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    margin: 40px auto 0;
+    text-align: center;
+}
+
+
+.p-form-privacy__wrapper {
+    height: 280px;
+    overflow: auto;
+    padding: 1.6em;
+    border: 1px solid var.$color-border-01;
+    text-align: left;
+
+    .privacy-title {
+        margin-bottom: 1em;
+        font-size: 1.25em;
+        line-height: 1.5;
+    }
+
+    .privacy-sub-title {
+        margin-block: 1.5em 0.6em;
+        font-size: 1.15em;
+        line-height: 1.5;
+    }
+}
+
+.p-form-privacy__acceptance {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.4em;
+
+    @include mixin.min-small {
+        gap: 0.8em;
+    }
+
+    .essential {
+        flex-shrink: 0;
+        padding-block: 0.2em;
+        @extend %essential-style;
+    }
+
+    .wpcf7-list-item {
+        display: flex;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    input {
+        margin-right: 0.5em;
+    }
+}

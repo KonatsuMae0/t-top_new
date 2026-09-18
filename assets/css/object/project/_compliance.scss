@@ -1,0 +1,69 @@
+@use 'sass:math';
+@use '../../foundation/_variables' as var;
+@use "../../foundation/_function" as function;
+@use '../../foundation/_mixin' as mixin;
+
+/* =========================================================
+ compliance
+========================================================= */
+
+.p-compliance {
+}
+
+.p-compliance__inner {
+    max-width: 1160px;
+}
+
+/* approach
+-------------------------------------- */
+.p-compliance-approach__title {
+    margin-bottom: 20px;
+    @include mixin.min-large {
+        margin-bottom: 30px;
+    }
+}
+
+.p-compliance-approach__list {
+    max-width: 800px;
+    margin-inline: auto;
+    @include mixin.min-medium {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* contract
+-------------------------------------- */
+.p-compliance-contract {
+    .c-quality-section__body {
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+        @include mixin.min-large {
+            row-gap: 20px;
+        }
+    }
+}
+
+.p-compliance-contract__privacy {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 18px;
+    img {
+        width: 60px;
+    }
+}
+
+
+/* safety
+-------------------------------------- */
+.p-compliance-safety {
+    .c-quality-section__body {
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+        @include mixin.min-large {
+            row-gap: 20px;
+        }
+    }
+}

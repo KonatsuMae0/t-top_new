@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+// base
+@use "foundation/_variables" as var;
+@use "foundation/_function" as function;
+@use "foundation/_mixin" as mixin;
+
+body#tinymce,
+.editor-styles-wrapper {
+    line-height: 1.4;
+    font-size: 16px;
+    font-family: sans-serif;
+
+    @include mixin.editor-heading-style;
+    @include mixin.editor-style;
+}

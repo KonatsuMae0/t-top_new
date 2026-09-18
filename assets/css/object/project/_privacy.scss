@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+@use 'sass:math';
+@use '../../foundation/_variables' as var;
+@use '../../foundation/_mixin' as mixin;
+
+/* =========================================================
+ privacy
+========================================================= */
+.p-privacy {
+    .c-post-body {
+        a[href*="tel:"] {
+            @include mixin.min-medium {
+                color: var.$color-text-01;
+                text-decoration: none;
+            }
+        }
+
+        .c-list {
+            li + li {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+.p-privacy__inner {
+    max-width: 1160px;
+}
+

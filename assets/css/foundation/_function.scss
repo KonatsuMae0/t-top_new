@@ -1,0 +1,48 @@
+/* =========================================================
+ function
+========================================================= */
+
+@use 'sass:math';
+@use '_variables' as var;
+
+
+// remの計算を行う
+@function rem($px, $base: 16) {
+    @return math.div($px, $base) * 1rem;
+}
+
+// vwの計算を行う
+// 例:calc-vw(20, 1400, 16) ・・・ベースのサイズは20px、ブラウザ幅1400px以下はvwでサイズ可変、最小値16px
+@function calc-vw($base-size, $target-width: 1920, $min: null)
+{
+    @if $base-size < 0
+    {
+        @return max((math.div($base-size, $target-width)) * 100vw, $base-size * 1px);
+    } @else {
+        // 負の値の場合
+        @if $min
+        {
+            @return clamp( $min * 1px, math.div($base-size, $target-width) * 100vw, $base-size * 1px);
+            //@return max(min(math.div($base-size, $target-width) * 100vw, $base-size * 1px), $min * 1px);
+        } @else {
+            @return min(math.div($base-size, $target-width) * 100vw, $base-size * 1px);
+        }
+    }
+}
+
+/// コンテナ幅に基づいた可変サイズ（cqi）を計算し、最大値を固定する関数
+/// @param $base-size - 基準となるサイズ（pxなど）
+/// @param $container-width - 基準となる親コンテナの幅（pxなど）
+@function calc-cqi($base-size, $container-width) {
+  $base: math.div($base-size, ($base-size * 0 + 1));
+  $container: math.div($container-width, ($container-width * 0 + 1));
+
+  $cqi-value: math.div($base, $container) * 100cqi;
+
+  // マイナス値のときはmax()で上限を保持（min()だと絶対値が大きい方が選ばれてしまうため）
+  @if $base < 0 {
+    @return max(#{$cqi-value}, #{$base}px);
+  }
+
+  @return min(#{$cqi-value}, #{$base}px);
+}

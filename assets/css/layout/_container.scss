@@ -1,0 +1,16 @@
+@use '../foundation/_variables' as var;
+@use "../foundation/_function" as function;
+@use '../foundation/_mixin' as mixin;
+
+/* =========================================================
+ container
+========================================================= */
+.l-container {
+    width: var.$width-sp;
+    margin-inline: auto;
+
+    @include mixin.min-large {
+        width: var.$width;
+        max-width: var.$max-width;
+    }
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 131 131">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1d2087;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke: url(#_名称未設定グラデーション_20);
+        stroke-miterlimit: 10;
+      }
+    </style>
+    <linearGradient id="_名称未設定グラデーション_20" data-name="名称未設定グラデーション 20" x1="19.18" y1="111.82" x2="111.82" y2="19.18" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1d2087"/>
+      <stop offset="1" stop-color="#0091da"/>
+    </linearGradient>
+  </defs>
+  <g id="_メインコンテンツ" data-name="メインコンテンツ">
+    <g>
+      <circle class="cls-2" cx="65.5" cy="65.5" r="65"/>
+      <path class="cls-1" d="M83.02,78.63c.63.7.63,1.76-.07,2.39l-1.97,1.97c-.63.7-1.69.7-2.39,0l-6.96-6.96c-.35-.35-.49-.77-.49-1.2v-1.2c-2.53,1.97-5.62,3.09-9,3.09-8.09,0-14.62-6.54-14.62-14.62s6.54-14.62,14.62-14.62,14.62,6.61,14.62,14.62c0,3.45-1.2,6.54-3.09,9h1.12c.42,0,.84.21,1.2.49l7.03,7.03ZM62.14,71.11c4.92,0,9-4.01,9-9s-4.08-9-9-9-9,4.08-9,9,4.01,9,9,9Z"/>
+    </g>
+  </g>
+</svg>

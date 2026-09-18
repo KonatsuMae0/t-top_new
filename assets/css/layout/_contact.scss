@@ -1,0 +1,165 @@
+@use '../foundation/_variables' as var;
+@use "../foundation/_function" as function;
+@use '../foundation/_mixin' as mixin;
+
+/* =========================================================
+ contact
+========================================================= */
+.l-contact {
+    position: relative;
+    padding-block: 40px 45px;
+    color: #FFF;
+    @include mixin.min-large {
+        padding-block: 90px 83px;
+    }
+}
+
+.l-contact__inner {
+    position: relative;
+    z-index: 2;
+
+    @include mixin.min-large {
+
+    }
+}
+
+
+
+.l-contact__title {
+    margin-bottom: 20px;
+    text-align: center;
+
+    @include mixin.max-medium {
+        .main {
+            @include mixin.font-size(30);
+        }
+        .sub {
+            @include mixin.font-size(14);
+        }
+    }
+    
+    @include mixin.min-large {
+    }
+}
+
+.l-contact__text {
+    text-align: center;
+    @include mixin.font-size(14);
+    @include mixin.min-large {
+
+        
+    }
+}
+
+.l-contact__btns {
+    display: grid;
+    gap: 13px function.calc-vw(40);
+    max-width: 350px;
+    margin: 22px auto 0;
+    
+    text-align: center;
+
+    @include mixin.min-medium {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: none;
+    }
+
+    @include mixin.min-large {
+        margin-top: 32px;
+    }
+}
+
+.l-contact__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    min-height: 80px;
+    padding-left: 1%;
+    border: 1px solid;
+    border-radius: 6px;
+    color: #FFF;
+    text-align: center;
+    transition: 0.5s background-color, 0.5s backdrop-filter;
+
+    @include mixin.min-xLarge {
+        min-height: 96px;
+    }
+
+    .icon {
+        position: absolute;
+        left: min(5%, 17px);
+        @include mixin.min-xLarge {
+            left: 30px;
+        }
+    }
+
+    &--contact {
+        .text {
+            @include mixin.font-size(16);
+
+            @include mixin.min-xLarge {
+                @include mixin.font-size(18);
+            }
+        }
+    }
+
+    &--tel {
+        .text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 4px;
+            line-height: 1.2;
+
+            @include mixin.min-xLarge {
+                /*flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;*/
+            }
+
+            .title {
+                @include mixin.font-size(14);
+
+                @include mixin.min-xLarge {
+                    margin-right: 1em;
+                    @include mixin.font-size(16);
+                }
+            }
+
+            .number {
+                font-family: var.$font-family-02;
+                font-weight: 600;
+
+                @include mixin.font-size(20);
+
+                @include mixin.min-xLarge {
+                    @include mixin.font-size(26);
+                }
+            }
+
+            small {
+                font-family: var.$font-family-01;
+                font-weight: 500;
+                @include mixin.font-size(10);
+                @include mixin.min-xLarge {
+                    width: 100%;
+                    @include mixin.font-size(12);
+                }
+            }
+        }
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            background: rgba(#FFF, 0.25);
+            backdrop-filter: blur(5px)
+        }
+    }
+}
+
+.l-contact__bg {
+
+    @include mixin.bg-img;
+}

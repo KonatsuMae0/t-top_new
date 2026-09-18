@@ -1,0 +1,273 @@
+@use "sass:color";
+@use "../foundation/_variables" as var;
+@use "../foundation/_function" as function;
+@use "../foundation/_mixin" as mixin;
+
+/* =========================================================
+ gnav
+========================================================= */
+
+.l-gnav {
+    list-style: none;
+    @include mixin.min-large {
+        display: flex;
+        height: 100%;
+        font-size: function.calc-vw(15, 1200, 13);
+        text-align: center;
+    }
+
+
+    > li {
+        @include mixin.max-medium {
+            border-bottom: 1px solid var.$color-border-01;
+        }
+
+        @include mixin.min-large {
+            height: function.calc-vw(140, 1920, 100);
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+
+.l-gnav__link {
+
+    @include mixin.max-medium {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.8em 0;
+        @include mixin.font-size(14);
+        @include mixin.hover-color(var.$color-01);
+
+    }
+
+    @include mixin.min-large {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding-inline: 0.6em;
+        color: var.$color-text-01;
+
+        &::after {
+            position: absolute;
+            bottom: -0.5em;
+            left: 50%;
+            translate: -50%;
+            width: 0;
+            height: 1px;
+            background: currentColor;
+            transition: 0.5s;
+            content: '';
+        }
+
+        .is-header--home:not(.is-header--scroll) & {
+            color: #FFF;
+        } 
+
+        @media (any-hover: hover) {
+            &:hover {
+                &::after {
+                    width: 2em;
+                }
+            }
+        }
+    }
+
+    @include mixin.min-xLarge {
+        padding-inline: 1em;
+    }
+
+    &--active {
+        @include mixin.max-medium {
+            color: var.$color-01;
+        }
+        @include mixin.min-large {
+            &::after {
+                width: 2em;
+            }
+        }
+    }
+}
+
+.l-gnav__toggle {
+    @include mixin.max-medium {
+        .l-gnav__link {
+            @include mixin.toggle-btn(0.8em, var.$color-01);
+        }
+    }
+
+    @include mixin.min-large {
+        position: relative;
+
+        .l-gnav__link {
+            display: flex;
+            align-items: center;
+        }
+        @media(any-hover: hover) {
+            &:hover {
+                .l-gnav__link {
+                    &::after {
+                        width: 2em;
+                    }
+                }
+                .l-gnav__child {
+                    top: calc(100% - 20px);
+                    opacity: 1;
+                    pointer-events: initial;
+                }
+            }
+        }
+    }
+}
+
+.l-gnav__child {
+    @include mixin.max-medium {
+        @include mixin.toggle-contents;
+
+        &.is-toggle-contents--open {
+            padding-block: 0.5em 1.2em;
+        }
+    }
+    @include mixin.min-large {
+        position: absolute;
+        z-index: 3;
+        opacity: 0;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 270px;
+        max-width: 270px;
+        pointer-events: none;
+        transition: 0.5s opacity, 0.3s top;
+        padding: 12px 22px;
+        background: color.adjust(var.$color-bg-02, $lightness: -3%);
+        border-radius: 6px;
+        overflow: hidden;
+   }
+}
+
+.l-gnav__child-title { // PCのみ
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0.8em;
+    line-height: 1.2;
+    text-align: left;
+    color: #FFF;
+    font-weight: 500;
+    @include mixin.font-size(20);
+
+    .sub {
+        display: block;
+        margin-top: 0.6em;
+        font-family: var.$font-family-02;
+        color: #FFF;
+        @include mixin.font-size(12);
+        font-weight: 600;
+    }
+
+    .arrow {
+        background: #FFF!important;
+        &::after {
+            border-top-width: 1.5px!important;
+            border-right-width: 1.5px!important;
+            border-color: var.$color-01!important;
+        }
+        @include mixin.arrow-circle(30px);
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            .arrow {
+                scale: 1.2;
+            }
+        }
+    }
+}
+
+.l-gnav__child-list {
+    display: grid;
+    gap: 1.2em;
+    list-style: none;
+    position: relative;
+    z-index: 2;
+    @include mixin.max-medium {
+        margin-top: 0;
+        font-size: function.calc-vw(14, 390);
+    }
+
+    @include mixin.min-large {
+        grid-template-columns: 1fr;
+        gap: 0;
+        @include mixin.font-size(15);
+    }
+}
+
+
+.l-gnav__child-link {
+    display: flex;
+    gap: 0.3em;
+    line-height: 1.4;
+    
+
+    @include mixin.max-medium {
+        @include mixin.hover-color(var.$color-01);
+        &::before {
+            content: '-';
+        }
+    }
+
+    @include mixin.min-large {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-block: 0.8em;
+        color: var.$color-01;
+        @include mixin.hover-opacity;
+
+        &::after {
+            width: 8px;
+            aspect-ratio: 1;
+            border-top: 1.5px solid currentColor;
+            border-right: 1.5px solid currentColor;
+            rotate: 45deg;
+            transition: 0.5s translate;
+            content: '';
+        }
+    }
+
+    &--active {
+        @include mixin.max-medium {
+            color: var.$color-01;
+        }
+        @include mixin.min-large {
+    
+        }
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            &::after {
+                translate: 50%;
+            }
+        }
+    }
+}
+
+.l-gnav__child-bg { // PCのみ
+    position: absolute;
+    inset: -10px;
+    opacity: 0.3;
+    filter: blur(3px);
+    @include mixin.max-medium {
+        display: none;
+    }
+    img {
+        @include mixin.fit-img;
+    }
+}

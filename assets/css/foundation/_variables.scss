@@ -1,0 +1,42 @@
+//------------------------------------- 
+// 変数
+//------------------------------------- 
+
+// コンテンツ幅
+$width: 94%;  // ノート（1280px）でも幅1200px確保
+$width-sp: 89.75%; // 390pxの端末で350px確保
+$max-width: 1200px; // 最大幅
+
+// ブレイクポイント
+$breakpoints: (
+    xSmall: 375,
+    small: 521,
+    medium: 768,
+    large: 1025,
+    xLarge: 1280,
+    xxLarge: 1920, // デザインアートボードサイズ
+);
+
+// カラー
+$color-01: #1d2087; // メインカラー
+$color-02: #282828; // サブカラー
+$color-03: #0091da; // サブカラー
+
+$color-bg-01: #f2f2f2; // 背景カラー
+$color-bg-02: #f1f2f8; // 背景カラー
+
+$color-border-01: #b4b4b4; // ボーダー色
+
+$color-text-01: #282828;
+$color-text-02: #036ea9; // リンクカラー
+//$color-text-03: #baad8d; // リンクカラー
+
+// フォント
+$font-family-01: "Noto Sans JP", sans-serif;
+$font-family-02: "Inter", sans-serif;
+$font-family-03: "Inter", "Noto Sans JP", sans-serif;
+// $font-family-03: sans-serif;
+
+// エディター作成コンテンツの要素同士の上下の余白
+$editorMargin: 1.5em;
+

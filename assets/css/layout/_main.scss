@@ -1,0 +1,18 @@
+@use "../foundation/_variables" as var;
+@use "../foundation/_function" as function;
+@use "../foundation/_mixin" as mixin;
+
+/* =========================================================
+ main
+========================================================= */
+.l-main {
+    position: relative;
+    z-index: 2;
+    overflow: clip;
+    //padding-top: 60px;
+
+    @include mixin.min-large {
+
+  
+    }
+}

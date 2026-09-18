@@ -1,0 +1,15 @@
+.eco_sumai_shop {
+
+    .dummy-text {
+        margin-block: 40px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .dummy-img {
+        display: block;
+        max-width: 600px;
+        margin: 40px auto;
+    }
+
+}
