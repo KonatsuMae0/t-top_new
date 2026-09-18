@@ -96,7 +96,7 @@
                         <a href="<?php echo home_url('/business/#hems'); ?>">HEMS</a>
                     </li>
                     <li>
-                        <a href="<?php echo home_url('/eco_sumai_shop/#hems'); ?>">エコ住まい特約店</a>
+                        <a href="<?php echo home_url('/eco_sumai_shop'); ?>">エコ住まい特約店</a>
                     </li>
                 </ul>
             </li>
