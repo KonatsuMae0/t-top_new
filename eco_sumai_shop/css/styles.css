@@ -1,15 +1,687 @@
-.eco_sumai_shop {
-
-    .dummy-text {
-        margin-block: 40px;
-        font-weight: 700;
-        text-align: center;
-    }
-
-    .dummy-img {
-        display: block;
-        max-width: 600px;
-        margin: 40px auto;
-    }
-
+#eco_sumai_shop {
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: left;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .br_tb {
+    display: none;
+  }
+}
+#eco_sumai_shop .br_sp {
+  display: none;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .br_sp {
+    display: inline;
+  }
+}
+#eco_sumai_shop img {
+  max-width: 100%;
+  height: auto;
+}
+#eco_sumai_shop a {
+  text-decoration: none;
+  color: inherit;
+}
+#eco_sumai_shop p {
+  margin: 0;
+}
+#eco_sumai_shop .container {
+  max-width: 768px;
+  box-sizing: border-box;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+#eco_sumai_shop {
+  /* hero */
+}
+#eco_sumai_shop .hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#eco_sumai_shop .hero_container {
+  position: relative;
+  max-width: 768px;
+  margin: 0 auto;
+}
+#eco_sumai_shop .hero_container .hero_cnt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 35px;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .hero_container .hero_cnt {
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .hero_container .hero_cnt .osaka-gus_logo {
+    width: 230px;
+  }
+}
+#eco_sumai_shop .hero-copy {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 20px;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .hero-copy {
+    font-size: 16px;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+}
+#eco_sumai_shop .hero-btn {
+  text-align: center;
+  margin-top: 30px;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .hero-btn {
+    margin-top: 15px;
+  }
+}
+#eco_sumai_shop .hero-btn a {
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  background: #fff;
+  color: #20428d;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 15px 50px 15px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: all 0.5s 0s ease;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .hero-btn a {
+    padding: 10px 50px 10px 30px;
+  }
+}
+#eco_sumai_shop .hero-btn a::before, #eco_sumai_shop .hero-btn a::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  right: 25px;
+  width: 10px;
+  height: 2px;
+  background-color: #20428d;
+  transform-origin: calc(100% - 1px) 50%;
+}
+#eco_sumai_shop .hero-btn a:hover {
+  transition: all 0.5s 0s ease;
+}
+#eco_sumai_shop .hero-btn a:hover::before, #eco_sumai_shop .hero-btn a:hover::after {
+  right: 15px;
+}
+#eco_sumai_shop .hero-btn a::before {
+  transform: rotate(45deg);
+}
+#eco_sumai_shop .hero-btn a::after {
+  transform: rotate(-45deg);
+}
+#eco_sumai_shop .hero-btn-text {
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  margin-top: 5px;
+  font-weight: bold;
+}
+#eco_sumai_shop {
+  /* intro */
+}
+#eco_sumai_shop .intro {
+  background: #fff;
+  padding: 52px 0;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .intro {
+    padding: 30px 0;
+  }
+}
+#eco_sumai_shop .section-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 26px;
+  letter-spacing: 0.05em;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .section-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+}
+#eco_sumai_shop .intro p {
+  font-size: 16px;
+  max-width: 578px;
+  margin: 0 auto;
+}
+#eco_sumai_shop .stats {
+  display: flex;
+  justify-content: center;
+  gap: 57px;
+  margin-top: 48px;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .stats {
+    gap: 10px;
+    margin-top: 25px;
+  }
+}
+#eco_sumai_shop .stat-box {
+  width: 234px;
+  height: 126px;
+  background: #1D2087;
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#eco_sumai_shop .stat-box h4 {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+}
+#eco_sumai_shop .stat-box span.big {
+  font-size: 32px;
+  font-weight: bold;
+  display: inline;
+}
+#eco_sumai_shop .stat-box span.stat-small {
+  font-size: 14px;
+  display: inline;
+}
+#eco_sumai_shop {
+  /* preparedness */
+}
+#eco_sumai_shop .preparedness {
+  padding: 60px 0;
+  background: #E2EDFB;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .preparedness {
+    padding: 40px 0;
+  }
+}
+#eco_sumai_shop .block-head {
+  text-align: center;
+}
+#eco_sumai_shop .block-head h2 {
+  color: #1a202c;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+  padding-left: 32px;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .block-head h2 {
+    font-size: 24px;
+    padding-left: 25px;
+  }
+}
+#eco_sumai_shop .block-head h2::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: #1D2087;
+  top: 25px;
+  left: 0;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .block-head h2::before {
+    display: none;
+  }
+}
+#eco_sumai_shop .block-head .lead {
+  font-size: 18px;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .block-head .lead {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+#eco_sumai_shop .card {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+  padding: 32px 20px;
+  position: relative;
+  margin-top: 80px;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .card {
+    margin-top: 40px;
+    padding: 32px 15px;
+  }
+}
+#eco_sumai_shop .card-label {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #EFEFEF;
+  padding: 10px 36px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .card-label {
+    padding: 10px;
+    min-width: 200px;
+  }
+}
+#eco_sumai_shop .card-label-ttl {
+  background: #1D2087;
+  margin: 0 auto;
+  color: #fff;
+  max-width: 320px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+#eco_sumai_shop .three-icons {
+  display: flex;
+  justify-content: space-between;
+  max-width: 576px;
+  margin: 40px auto 0;
+}
+#eco_sumai_shop .icon-item {
+  text-align: center;
+  padding: 0 5px;
+}
+#eco_sumai_shop .icon-item > p {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .icon-item > p {
+    font-size: 22px;
+  }
+}
+#eco_sumai_shop .feature {
+  margin-top: 90px;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .feature {
+    margin-top: 50px;
+  }
+}
+#eco_sumai_shop .feature:last-child {
+  margin-bottom: 0;
+}
+#eco_sumai_shop .feature-tag {
+  width: -moz-fit-content;
+  width: fit-content;
+  background: #1D2087;
+  color: #fff;
+  padding: 6px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+#eco_sumai_shop .feature-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+#eco_sumai_shop .feature-head .ttl {
+  font-size: 34px;
+  font-weight: bold;
+}
+#eco_sumai_shop .feature-pill {
+  background: #E2EDFB;
+  border-radius: 100px;
+  padding: 10px 24px;
+  font-size: 16px;
+  color: #1D2087;
+  font-weight: bold;
+}
+#eco_sumai_shop .feature-text {
+  font-size: 16px;
+}
+#eco_sumai_shop .feature-box_block {
+  background: #F3F3F3;
+  padding: 20px;
+  border-radius: 18px;
+  margin-top: 20px;
+}
+#eco_sumai_shop .feature-box_block .text {
+  font-size: 14px;
+}
+#eco_sumai_shop .feature-box_block .notion {
+  font-size: 12px;
+  margin-top: 10px;
+}
+#eco_sumai_shop .feature-box_block .ttl {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 18px;
+  position: relative;
+  padding-left: 15px;
+}
+#eco_sumai_shop .feature-box_block .ttl::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background-color: #1D2087;
+  top: 0;
+  left: 0;
+}
+#eco_sumai_shop .feature-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .feature-box {
+    display: block;
+  }
+}
+#eco_sumai_shop .feature-box.img-group {
+  justify-content: space-around;
+}
+#eco_sumai_shop .feature-box img {
+  margin-left: 10px;
+  display: block;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .feature-box img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+  }
+}
+#eco_sumai_shop .feature-box + .feature-box {
+  margin-top: 35px;
+}
+#eco_sumai_shop {
+  /* reality */
+}
+#eco_sumai_shop .reality {
+  color: #fff;
+  padding: 60px 0;
+  background: url("../../assets/img/eco_sumai_shop/bg_reality.png") center/cover no-repeat;
+  position: relative;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .reality {
+    padding: 40px 0;
+  }
+}
+#eco_sumai_shop .reality .block-head h2::before {
+  background-color: #CFE048;
+}
+#eco_sumai_shop .reality .block-head h2 span {
+  color: #CFE048;
+  font-size: 38px;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .reality .block-head h2 span {
+    font-size: 30px;
+  }
+}
+#eco_sumai_shop .reality .card {
+  background-color: #343538;
+  margin-top: 10px;
+}
+#eco_sumai_shop .reality-lead {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+#eco_sumai_shop .bubble-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 40px auto;
+  max-width: 540px;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .bubble-grid {
+    display: block;
+  }
+}
+#eco_sumai_shop .bubble {
+  background: #fff;
+  color: #222;
+  border-radius: 999px;
+  padding: 16px;
+  text-align: center;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .bubble {
+    margin-top: 15px;
+  }
+}
+#eco_sumai_shop .photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .photo-grid {
+    display: block;
+    text-align: center;
+  }
+}
+#eco_sumai_shop .photo-grid img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .photo-grid img {
+    margin: 10px auto 0;
+  }
+}
+#eco_sumai_shop .chart-area {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 40px;
+  align-items: center;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .chart-area {
+    display: block;
+  }
+}
+#eco_sumai_shop .chart-area .ttl {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+#eco_sumai_shop .chart-area .ttl span {
+  color: #CFE048;
+}
+#eco_sumai_shop .chart-area .text {
+  font-size: 14px;
+}
+#eco_sumai_shop .chart-area .notion {
+  font-size: 10px;
+  margin-top: 10px;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .chart-area .chart-circle {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+#eco_sumai_shop {
+  /* footer cta */
+}
+#eco_sumai_shop .cta {
+  background: #E2EDFB;
+  padding: 80px 0;
+}
+#eco_sumai_shop .cta-box {
+  background: #fff;
+  border-radius: 26px;
+  position: relative;
+  padding: 30px 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background-image: url(../img/eco_sumai_shop/bg_house01.png);
+  background-position: bottom right;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .cta-box {
+    padding: 20px;
+    background-size: 50% auto;
+  }
+}
+#eco_sumai_shop .cta-box h2 {
+  color: #CF0000;
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .cta-box h2 {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+}
+#eco_sumai_shop .cta-box p {
+  font-size: 14px;
+}
+#eco_sumai_shop .cta-box::before {
+  content: "";
+  position: absolute;
+  top: -49px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 50px;
+  background: #fff;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+#eco_sumai_shop .eco_privacy-policy_ttl {
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 120px;
+  color: #1a202c;
+  border-bottom: 2px solid #1D2087;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+}
+#eco_sumai_shop .eco_privacy-policy {
+  background: #fff;
+  border-radius: 26px;
+  position: relative;
+  padding: 30px 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  height: 400px;
+  margin-top: 30px;
+  overflow-y: scroll;
+}
+@media screen and (max-width: 449px) {
+  #eco_sumai_shop .eco_privacy-policy {
+    padding: 20px;
+    background-size: 50% auto;
+  }
+}
+#eco_sumai_shop .eco_privacy-policy .ttl {
+  font-size: 16px;
+  color: #1D2087;
+  background-color: #ebf8ff;
+  padding: 8px 14px;
+  border-left: 4px solid #1D2087;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  border-radius: 0 4px 4px 0;
+}
+#eco_sumai_shop .eco_privacy-policy a {
+  color: #1D2087;
+  text-decoration: none;
+}
+#eco_sumai_shop .eco_privacy-policy a:hover {
+  text-decoration: underline;
+}
+#eco_sumai_shop .eco_privacy-policy ul, #eco_sumai_shop .eco_privacy-policy ol {
+  padding-left: 24px;
+  margin-bottom: 20px;
+}
+#eco_sumai_shop .eco_privacy-policy li {
+  margin-bottom: 8px;
+}
+#eco_sumai_shop .eco_privacy-policy .table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+#eco_sumai_shop .eco_privacy-policy table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+#eco_sumai_shop .eco_privacy-policy th, #eco_sumai_shop .eco_privacy-policy td {
+  border: 1px solid #e2e8f0;
+  padding: 12px;
+  text-align: left;
+}
+#eco_sumai_shop .eco_privacy-policy th {
+  background-color: #f7fafc;
+  color: #4a5568;
+  font-weight: bold;
+}
+#eco_sumai_shop .eco_privacy-policy .sub-section {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding-left: 8px;
+}
+#eco_sumai_shop .eco_privacy-policy .contact-box {
+  background-color: #f7fafc;
+  border: 1px solid #e2e8f0;
+  padding: 16px 20px;
+  border-radius: 6px;
+  margin-top: 12px;
+}
+#eco_sumai_shop .eco_privacy-policy .date {
+  text-align: right;
+  color: #718096;
+  margin-top: 40px;
+  font-size: 14px;
+}/*# sourceMappingURL=styles.css.map */
